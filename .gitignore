@@ -1,0 +1,35 @@
+# 🔐 Entornos virtuales
+
+venv/
+env/
+ENV/
+
+# 🐍 Archivos compilados de Python
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+
+# ⚙️ Archivos de configuración local
+
+.env
+.env.*
+
+# 📝 Logs
+
+*.log
+
+# 💻 Configuración de VS Code
+
+.vscode/
+
+# 🧱 Build / distribución
+
+build/
+dist/
+
+# 🧠 Archivos del sistema
+
+.DS_Store
+Thumbs.db
