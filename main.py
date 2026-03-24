@@ -1,15 +1,21 @@
+#Calculadora de Propinas - Archivo Principal
 
-# Función 1 para calcular el 10% de una cantidad
-def Calcular_10_por_ciento(cantidad):
-    return cantidad * 0.10
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-#Testeo de la Función 1
-cantidad = 78
-resultado = Calcular_10_por_ciento(cantidad)
-print(f"Ejemplo de: 10% de {cantidad} es {resultado}") 
+from src.Funciones_Calculadora import (
+    Calcular_propina,
+    Dividir_cuenta,
+    pedir_cuenta_total
+    )
+def main():
+    """Función principal de la calculadora de propinas."""
+    print("=== CALCULADORA DE PROPINAS ===")
 
-#Test 2
-cantidad = float(input("Ingrese una cantidad: "))
-resultado = Calcular_10_por_ciento(cantidad)
-print(f"El 10% de {cantidad} es {resultado}")  
+# Paso 1: Pedir total de la cuenta
+Cuenta_total = pedir_cuenta_total()
 
+# PASO 2: ¿Cuántos comensales son?
+print("\nPASO 2: Número de comensales")
+comensales = int(input("¿Cuántos comensales son? "))
