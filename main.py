@@ -21,7 +21,7 @@ def main():
 
         # Paso 1: Total cuenta
         total = pedir_cuenta_total()
-        print(f"Ha introducido: {total:.2f} €\n")
+        print(f"Ha introducido: ${total:.2f} \n")
 
         # Paso 2: Comensales (validado)
         while True:
@@ -51,11 +51,11 @@ def main():
         # Resultados
         print("\n" + "="*50)
         print("RESULTADOS:")
-        print(f"Cuenta original:     {total:.2f} €")
-        print(f"Propina total:       {propina_total:.2f} €")
-        print(f"Total a pagar:       {total_a_pagar:.2f} €")
-        print(f"Pago por comensal:   {pago_por_comensal:.2f} €")
-        print("="*50)
+        print(f"Cuenta original:     ${total:.2f} ")
+        print(f"Propina total:       ${propina_total:.2f} ")
+        print(f"Total a pagar:       ${total_a_pagar:.2f} ")
+        print(f"Pago por comensal:   ${pago_por_comensal:.2f}")
+        print("="*60)
 
         # ¿Reiniciar?
         while True:
@@ -63,7 +63,7 @@ def main():
             if opcion in ["s", "si", "y", "yes"]:
                 break  # Reinicia el bucle principal
             elif opcion in ["n", "no"]:
-                print("\n¡Gracias por usar la calculadora! 👋")
+                print("\n¡Gracias por usar mi funcion de calcular precio de un restaurante! 👋")
                 return  # Sale del programa
             else:
                 print("Escribe 's' para sí o 'n' para no")
