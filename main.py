@@ -4,11 +4,13 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.Funciones_Calculadora import (
-    Calcular_propina,
+    limpiar_pantalla,
+    Calcular_propina_en_porcentaje,
+    Calcular_propina_fija,
+    menu_propina,
     Dividir_cuenta,
     pedir_cuenta_total,
-    limpiar_pantalla
-)
+    )
 
 def main():
     """Función principal con opción de reinicio."""
@@ -33,18 +35,17 @@ def main():
             except ValueError:
                 print("Ingrese un número válido")
 
-        # Paso 3: Porcentaje propina (validado)
-        while True:
-            try:
-                porcentaje = float(input("¿Qué porcentaje de propina desea dejar? "))
-                if 0 <= porcentaje <= 100:
-                    break
-                print("Debe estar entre 0 y 100")
-            except ValueError:
-                print("Ingrese un número válido")
+        # PASO 3: CAMBIADO → Menú en lugar de solo porcentaje
+        propina_tipo, valor_propina = menu_propina()
+        
+        # Cálculo según tipo 
+        if propina_tipo == "porcentaje":
+            propina_total = Calcular_propina_en_porcentaje(total, valor_propina)
+        else:  # fija
+            propina_total = Calcular_propina_fija(valor_propina)
 
         # Cálculos
-        propina_total = Calcular_propina(total, porcentaje)
+        propina_total = Calcular_propina_en_porcentaje(total, valor_propina)
         total_a_pagar = total + propina_total
         pago_por_comensal = Dividir_cuenta(total_a_pagar, comensales)
 
