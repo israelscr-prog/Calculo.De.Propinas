@@ -14,7 +14,7 @@ def Calcular_propina_en_porcentaje(cuenta: float, porcentaje: float) -> float:
     """Calcula propina según porcentaje de la cuenta."""
     return cuenta * (porcentaje / 100)
 
-def Calcular_propina_fija( monto_fijo: float) -> float:
+def Calcular_propina_fija(monto_fijo: float) -> float:
     """Propina con monto fijo."""
     return monto_fijo
 

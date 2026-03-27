@@ -10,20 +10,20 @@ from src.Funciones_Calculadora import (
     menu_propina,
     Dividir_cuenta,
     pedir_cuenta_total,
-    )
+)
 
 def mostrar_menu_principal():
     """Menu principal del programa."""
     print("\n" + "="*66)
-    print("===================== CALCULADORA DE PROPINAS ====================\n")
-    print("Bienvenido a la Calculadora de Propinas que te ayuda a calcular propinas y pagos por comensal.\n")
+    print("===================== CALCULADORA DE PROPINAS ====================")
+    print("Bienvenido a la Calculadora de Propinas que te ayuda a calcular propinas y pagos por comensal.")
     print("Selecciona una opción:")
     print("1. 🧾 Nueva cuenta (Porcentaje o Fija)")
     print("2. 💰 Solo dividir cuenta")
     print("3. 🚪 Salir")
     print("="*66)
 
-def Calcular_completo():
+def calcular_completo():
     """Función principal para calcular propina y dividir cuenta."""
     # Paso 1: Total cuenta
     total = pedir_cuenta_total()
@@ -39,16 +39,16 @@ def Calcular_completo():
         except ValueError:
             print("❌ Ingrese un número válido")
 
-    # PASO 3: CAMBIADO → Menú en lugar de solo porcentaje
-        propina_tipo, valor_propina = menu_propina()
-        
-    # Paso 4: Cálculo según tipo 
+    # Paso 3: Menú propina (FUERA del while)
+    propina_tipo, valor_propina = menu_propina()
+    
+    # Paso 4: Cálculo según tipo (SIN duplicada)
     if propina_tipo == "porcentaje":
         propina_total = Calcular_propina_en_porcentaje(total, valor_propina)
     else:  # fija
         propina_total = Calcular_propina_fija(valor_propina)
 
-    # Resultados
+    # Cálculos
     total_a_pagar = total + propina_total
     pago_por_comensal = Dividir_cuenta(total_a_pagar, comensales)
 
@@ -56,7 +56,7 @@ def Calcular_completo():
     print("\n" + "="*60)
     print("📊RESULTADOS:")
     print(f"Cuenta original:     ${total:.2f} ")
-    print(f"Propina total: ({propina_tipo.title()}): ${propina_total:.2f}")
+    print(f"Propina total ({propina_tipo.title()}): ${propina_total:.2f}")
     print(f"Total a pagar:       ${total_a_pagar:.2f} ")
     print(f"Pago por comensal:   ${pago_por_comensal:.2f}")
     print("="*60)
@@ -87,7 +87,7 @@ def main():
         opcion = input("→ Elige opción (1-3): ").strip()
         
         if opcion == "1":
-            Calcular_completo()
+            calcular_completo()
         elif opcion == "2":
             solo_dividir()
         elif opcion == "3":
@@ -99,4 +99,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
